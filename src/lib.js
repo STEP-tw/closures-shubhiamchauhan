@@ -62,7 +62,12 @@ const makeCycler = function(source) {
   }
 }
 
-const curry = undefined;
+const curry = function(fnName,firstArg) {
+  return function(secArg, thirdArg) {
+    return fnName(firstArg, secArg, thirdArg);
+  }
+}
+
 const compose = undefined;
 
 exports.makeConstant=makeConstant;
