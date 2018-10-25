@@ -31,7 +31,24 @@ const makeDeltaTracker = function(oldKeyValue) {
   }
 }
 
-const makeFiboGenerator = undefined;
+const makeFiboGenerator = function(firstTerm,secTerm) {
+  if(firstTerm == undefined && secTerm == undefined){
+    firstTerm = 0;
+    secTerm = 1;
+  }
+  if(secTerm == undefined && firstTerm != undefined) {
+    secTerm = firstTerm;
+    firstTerm = 0;
+  }
+  let result = firstTerm;
+  return function(){
+    firstTerm = result;
+    result = secTerm;
+    secTerm = firstTerm + secTerm;
+    return firstTerm;
+  }
+}
+
 const makeCycler = undefined;
 const curry = undefined;
 const compose = undefined;
