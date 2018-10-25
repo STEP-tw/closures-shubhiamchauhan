@@ -5,7 +5,15 @@ const makeConstant = function(value) {
   }
 }
 
-const makeCounterFromN = undefined;
+const makeCounterFromN = function(countStart) {
+  let count=0;
+  return function() {
+    count=countStart;
+    countStart++;
+    return count;
+  }
+}
+
 const makeCounterFromZero = undefined;
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
