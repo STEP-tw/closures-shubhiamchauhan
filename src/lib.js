@@ -49,7 +49,19 @@ const makeFiboGenerator = function(firstTerm,secTerm) {
   }
 }
 
-const makeCycler = undefined;
+const makeCycler = function(source) {
+  let index = 0;
+  source = source.slice();
+  return function() {
+    if(index >= source.length) {
+      index = 0;
+    }
+    let result = source[index];
+    index++;
+    return result;
+  }
+}
+
 const curry = undefined;
 const compose = undefined;
 
