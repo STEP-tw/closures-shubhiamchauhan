@@ -68,7 +68,11 @@ const curry = function(fnName,firstArg) {
   }
 }
 
-const compose = undefined;
+const compose = function(fnName, nestedFn) {
+  return function(firstArg, secArg) {
+    return fnName(nestedFn(firstArg, secArg));
+  }
+}
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;
