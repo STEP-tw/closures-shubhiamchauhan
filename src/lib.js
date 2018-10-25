@@ -18,7 +18,19 @@ const makeCounterFromZero = function() {
   return makeCounterFromN(0);
 }
 
-const makeDeltaTracker = undefined;
+const makeDeltaTracker = function(oldKeyValue) {
+  return function(deltaCurrentValue) {
+    if(deltaCurrentValue == undefined ) {
+      deltaCurrentValue = 0;
+    }
+    let record={old:oldKeyValue };
+    record["delta"] = deltaCurrentValue;
+    record["new"] = record["delta"]+record["old"];
+    oldKeyValue=record["new"];
+    return record;
+  }
+}
+
 const makeFiboGenerator = undefined;
 const makeCycler = undefined;
 const curry = undefined;
