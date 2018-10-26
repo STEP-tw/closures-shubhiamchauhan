@@ -6,11 +6,8 @@ const makeConstant = function(value) {
 }
 
 const makeCounterFromN = function(countStart) {
-  let count = 0;
   return function() {
-    count = countStart;
-    countStart++;
-    return count;
+    return countStart++;
   }
 }
 
